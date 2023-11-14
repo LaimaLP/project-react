@@ -1,49 +1,40 @@
 import style from './Kanban.module.css';
+import { KanbanColumn } from './KanbanColumn';
 
 export function Kanban() {
+    const data = [
+        {
+            id: 1,
+            columnIndex: 1,
+            title: 'HTML',
+            description: 'Task description about HTML',
+            deadline: 2024,
+            tags: ['html', 'font', 'color'],
+        },
+        {
+            id: 2,
+            columnIndex: 0,
+            title: 'CSS',
+            description: 'Task description about CSS',
+            deadline: 2024,
+            tags: ['css', 'column'],
+        },
+        {
+            id: 3,
+            columnIndex: 0,
+            title: 'JavaScript',
+            description: 'Task description about JavaScript',
+            deadline: 2024,
+            tags: ['js', 'loops', 'if'],
+        },
+    ];
+
     return (
-        <section id="kanban" className={style.todo} style={{ gridTemplateColumns: 'repeat(4, 1fr)' }}>
-            <div className={style.column}>
-                <h2 className={style.title + ' normal underline'}>Backlog</h2>
-                <ul className={style.taskList}>
-                    <li id="task_1" className={style.taskCard}>
-                        <div className={style.taskActions}>
-                            <button className={style.btn}>Delete</button>
-                            {/* <button className="fa fa-trash"></button> */}
-                        </div>
-                        <div className={style.taskTitle}>aaa</div>
-                        <div className={style.taskDesc}>aaa</div>
-                        <div className={style.taskTags}>
-                            <div className={style.tag} style={{ color: '#333' }}>aaa</div>
-                        </div>
-                        <div className={style.taskDeadline}>aaa</div>
-                    </li>
-                    <li id="task_2" className={style.taskCard}>
-                        <div className={style.taskActions}>
-                            <button className={style.btn}>Delete</button>
-                            {/* <button className="fa fa-trash"></button> */}
-                        </div>
-                        <div className={style.taskTitle}>bbb</div>
-                        <div className={style.taskDesc}>bbb</div>
-                        <div className={style.taskTags}>
-                            <div className={style.tag} style={{ color: '#333' }}>bbb</div>
-                        </div>
-                        <div className={style.taskDeadline}>bbb</div>
-                    </li>
-                </ul>
-            </div>
-            <div className={style.column}>
-                <h2 className={style.title + ' normal underline'}>Todo</h2>
-                <ul className={style.taskList}></ul>
-            </div>
-            <div className={style.column}>
-                <h2 className={style.title + ' normal underline'}>In progress</h2>
-                <ul className={style.taskList}></ul>
-            </div>
-            <div className={style.column}>
-                <h2 className={style.title + ' normal underline'}>Done</h2>
-                <ul className={style.taskList}></ul>
-            </div>
+        <section id="kanban" className={style.todo} style={{ gridTemplateColumns: 'repeat(8, 1fr)' }}>
+            <KanbanColumn tasks={data.filter(task => task.columnIndex === 0)} title="Backlog" />
+            <KanbanColumn tasks={data.filter(task => task.columnIndex === 1)} title="Todo" />
+            <KanbanColumn tasks={data.filter(task => task.columnIndex === 2)} title="In progress" />
+            <KanbanColumn tasks={data.filter(task => task.columnIndex === 3)} title="Done" />
         </section>
     );
 }
