@@ -1,0 +1,30 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.formRow {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+.label {
+    font-size: 1.1rem;
+}
+.input,
+.textarea {
+    font-family: inherit;
+    font-size: 1.2rem;
+    line-height: 1em;
+    padding: 0.5em 1rem;
+}
+.textarea {
+    min-height: 3em;
+    height: 4em;
+    max-height: 11em;
+    resize: vertical;
+}
+.btn {
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+}

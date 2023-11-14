@@ -1,10 +1,10 @@
 import { Aside } from '../aside/Aside';
 import { Kanban } from '../kanban/Kanban';
-import './Main.css';
+import style from './Main.module.css';
 
 export function Main() {
     return (
-        <main className="main-content">
+        <main className={style.mainContent}>
             <Kanban />
             <Aside />
         </main>
