@@ -3,7 +3,10 @@ import { Tag } from './Tag';
 
 export function TaskCard({ data }) {
     const { title, description, deadline, tags } = data;
+    // const title = data.title ...
     const tagsList = tags.map(tag => <Tag title={tag} />);
+    // const tagsList = tags.map(tag => <div className={style.tag} style={{ color: '#333' }}>{tag}</div>);
+
 
     return (
         <li id="task_1" className={style.taskCard}>
@@ -17,3 +20,10 @@ export function TaskCard({ data }) {
         </li>
     );
 }
+
+// const tags = ["low", "high", "medium"];
+// const tagList = [];
+
+// for (const tag of tags) {
+//     tagList.push(<Tag title={tag} />);
+// }
